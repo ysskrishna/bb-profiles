@@ -1,8 +1,9 @@
 # BB Community listing
 
 The public registry is [get-bb/marketplace](https://github.com/get-bb/marketplace#submit-a-plugin).
-A reviewed pull request adds the plugin to BB Community. No submission has been
-made yet.
+A reviewed pull request adds the plugin to BB Community. The
+[community submission](https://github.com/get-bb/marketplace/pull/1040) was opened
+on 2026-11-23 for v0.1.1 and is awaiting review.
 
 ## Submitting
 
