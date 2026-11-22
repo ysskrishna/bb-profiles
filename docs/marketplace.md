@@ -13,9 +13,9 @@ made yet.
 4. In a fork of `get-bb/marketplace`, add `entries/bb-profiles.json` (below).
 5. Copy `PLUGIN_OVERVIEW.md` to `overview/bb-profiles.md`. It must be plain
    supported Markdown, under 4,000 characters, with absolute HTTPS links.
-6. Add overview screenshots under `screenshots/bb-profiles/`. Current community
-   rules require PNG/JPEG/WebP images at least 1,200 px wide and no larger than
-   2 MiB; up to six. This repository has none yet.
+6. Copy `docs/screenshots/marketplace-overview.png` to
+   `screenshots/bb-profiles/overview.png`. Current community rules require
+   PNG/JPEG/WebP images at least 1,200 px wide and no larger than 2 MiB; up to six.
 7. In the registry checkout run `npm ci`, `npm run build`, `npm test`,
    `npm run gate:v1`, and `npm run check`. The last check validates the remote source.
 8. Open a registry PR and address maintainer review. Verify the live listing
@@ -40,7 +40,7 @@ The package, runtime, and marketplace share the `bb-profiles` identity.
     "github": "ysskrishna",
     "url": "https://ysskrishna.space"
   },
-  "category": "models-and-providers",
+  "category": "agents-and-providers",
   "overview": "./overview/bb-profiles.md",
   "screenshots": ["./screenshots/bb-profiles/overview.png"],
   "source": {
@@ -52,5 +52,5 @@ The package, runtime, and marketplace share the `bb-profiles` identity.
 }
 ```
 
-The `category` value is a guess; check the registry's current category list
-before submitting.
+`agents-and-providers` is where the registry lists other model-picker plugins
+(Hide Models, Model Presets). Recheck `marketplace.base.json` before submitting.

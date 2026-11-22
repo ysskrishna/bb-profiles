@@ -7,6 +7,10 @@
 
 A [BB](https://getbb.app) plugin that chooses which providers and models appear in the model picker for each project, and the default model new threads start on. Settings are shared by every device connected to the same BB server.
 
+![A Payments project starts on Claude Code only, a Mobile app project on Codex only, then the settings page opens](docs/screenshots/profiles-demo.gif)
+
+The GIF records actual interactions in BB 0.50.1 with disposable demo projects: **Payments service (Claude only) → switch to Mobile app (Codex only) → Profiles settings**. [Capture details](docs/screenshots/README.md).
+
 ## Features
 
 | Feature | What it does |
@@ -19,6 +23,21 @@ A [BB](https://getbb.app) plugin that chooses which providers and models appear 
 | **Composer button** | A sliders button in the new-thread composer opens the settings page. |
 
 Every change saves on its own. Reset everything removes all profiles and rules.
+
+| Settings | Picker for a Claude-only project |
+| --- | --- |
+| ![Profiles settings page with the Payments profile selected](docs/screenshots/settings-light.png) | ![Model picker showing only Opus 5.5 and Sonnet 5.5, with More models](docs/screenshots/picker-payments-dark.png) |
+
+<details>
+<summary><b>More screenshots</b></summary>
+
+| | |
+| --- | --- |
+| ![Settings page in the dark theme](docs/screenshots/settings-dark.png) | ![Hidden models under More models](docs/screenshots/picker-more-models-dark.png) |
+| ![Model picker for a Codex-only project](docs/screenshots/picker-mobile-light.png) | ![Custom models row on the Codex tab](docs/screenshots/custom-models-light.png) |
+| ![Profiles settings button in the composer](docs/screenshots/composer-button-dark.png) | |
+
+</details>
 
 ## Limitations
 
