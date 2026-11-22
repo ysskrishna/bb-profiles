@@ -52,7 +52,7 @@ Every change saves on its own. Reset everything removes all profiles and rules.
 Requires **BB 0.50.x**. The release badge above reflects published GitHub Releases.
 
 ```sh
-bb plugin install git:github.com/ysskrishna/bb-profiles@v0.1.0
+bb plugin install git:github.com/ysskrishna/bb-profiles@v0.1.1
 ```
 
 BB shows the source for confirmation before installing it. The plugin ID is `bb-profiles`. Open **Settings > Profiles** or click the sliders button in a new-thread composer.

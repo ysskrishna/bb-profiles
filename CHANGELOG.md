@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Fixed
+
+- Installing from a release tag failed because the settings page's button libraries were only development dependencies. They now ship with the plugin.
+
 ## [0.1.0]
 
 ### Added

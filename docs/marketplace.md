@@ -23,6 +23,7 @@ made yet.
 
 A `range` source discovers stable version tags, so later compatible releases do
 not require editing the registry entry. Source, name, and branding changes do.
+The range starts at `^0.1.1` because v0.1.0 does not build from a git install.
 
 ## Registry entry
 
@@ -46,7 +47,7 @@ The package, runtime, and marketplace share the `bb-profiles` identity.
   "source": {
     "git": {
       "url": "https://github.com/ysskrishna/bb-profiles.git",
-      "range": "^0.1.0"
+      "range": "^0.1.1"
     }
   }
 }
