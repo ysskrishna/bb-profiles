@@ -236,6 +236,18 @@ describe("settings page", () => {
     expect(screen.queryByRole("switch", { name: "Limit to selected models" })).toBeNull();
   });
 
+  it("opens on the first provider the profile uses", async () => {
+    state.snapshot = setProvider(state.snapshot, "default", "alpha", {
+      enabled: false,
+      limit: false,
+      modelIds: [],
+    });
+    state.snapshot = { ...state.snapshot, revision: ++revision };
+    receiveSnapshot(state.snapshot);
+    await ready();
+    await waitFor(() => expect(screen.getByRole("tab", { name: /Beta/ }).getAttribute("aria-selected")).toBe("true"));
+  });
+
   it("lists unavailable saved models and lets them be removed", async () => {
     await ready();
     state.snapshot = setProvider(state.snapshot, "default", "alpha", {

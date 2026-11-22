@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { getProviderRule, type Profile, type ProviderRule } from "./profiles";
 import type { CatalogState, CustomModelOption, ProviderOption } from "../lib/settings-data";
 import { SettingRow, SettingsSection, SwitchRow, type SaveStatus } from "./settings-ui";
@@ -36,7 +36,15 @@ export function ProvidersSection({
 }) {
   const [tab, setTab] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const current = providers.find((p) => p.id === tab) ?? providers[0];
+  // Until a tab is chosen, open the first provider this profile uses.
+  const current =
+    providers.find((p) => p.id === tab) ??
+    providers.find((p) => getProviderRule(profile, p.id)?.enabled !== false) ??
+    providers[0];
+  // Keep that tab once providers load, so turning it off does not move away.
+  useEffect(() => {
+    if (tab === null && current) setTab(current.id);
+  }, [tab, current]);
   const rule = (current && getProviderRule(profile, current.id)) || DEFAULT_RULE;
   const catalog = current ? catalogs[current.id] : undefined;
   const models = catalog?.status === "ready" ? catalog.models : [];

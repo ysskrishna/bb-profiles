@@ -190,6 +190,7 @@ export function SettingsPage() {
         actions={actions}
       />
       <ProvidersSection
+        key={selected.id}
         profile={selected}
         providers={providers}
         catalogs={catalogs}
