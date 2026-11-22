@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.0]
+
 ### Added
 
 - Per-project profiles that choose which providers and models appear in BB's model picker, with a Default profile for every project without one.
