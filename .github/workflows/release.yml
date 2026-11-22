@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the release tag
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require a commit included in main
+        run: git merge-base --is-ancestor HEAD origin/main
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Check tag and manifest versions
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: node scripts/release/verify.mjs "$RELEASE_TAG"
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify the plugin
+        run: npm run check
+
+  release:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the release tag
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Create GitHub release from changelog
+        uses: ysskrishna/changelog-release-action@c574fb829fd42a3979bd1c9920650ad9da4634fe # v1

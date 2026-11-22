@@ -1,0 +1,129 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.6.8/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "includes": ["**", "!!**/node_modules", "!!**/dist", "!!**/coverage", "!!tmp", "!**/package-lock.json", "!**/*.md"],
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all",
+      "arrowParentheses": "always",
+      "quoteProperties": "asNeeded"
+    }
+  },
+  "json": {
+    "formatter": {
+      "expand": "auto"
+    }
+  },
+  "assist": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "none",
+      "correctness": {
+        "noUnusedImports": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["app.tsx", "src/**/*.ts", "src/**/*.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useImportType": "error"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["app.tsx", "src/*.tsx", "components/**", "lib/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/server", "**/server.*", "**/server-*", "node:*", "node:*/**"],
+                    "message": "Browser modules must not import Node modules or server entries, even for types."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/*.ts", "!src/*.test.ts", "!src/server.ts", "!src/server-*.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["react", "react/**", "react-dom", "react-dom/**", "node:*", "node:*/**"],
+                    "message": "Shared modules must stay independent of React and Node."
+                  },
+                  {
+                    "group": ["**/server", "**/server.*", "**/server-*"],
+                    "message": "Shared modules must not import server entries, even for types."
+                  },
+                  {
+                    "group": ["**/*.tsx", "**/components/**", "**/lib/**"],
+                    "message": "Shared modules must not import app components or browser helpers."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/server.ts", "src/server-*.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["react", "react/**", "react-dom", "react-dom/**"],
+                    "message": "Server modules must not import React."
+                  },
+                  {
+                    "group": ["**/*.tsx", "**/components/**", "**/lib/**"],
+                    "message": "Server modules must not import app components or browser helpers."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
