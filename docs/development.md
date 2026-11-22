@@ -19,6 +19,45 @@ version: the picker filter reads BB's query client through React internals, and
 the settings button pushes BB's settings route. Check both by hand on the BB
 minor in `engines.bb` before a release.
 
+## Isolated scratch BB
+
+`scripts/e2e/server.mjs` starts a disposable BB from the pinned `bb-app`
+devDependency, adapted from Idle Compact's launcher:
+
+- its own data directory under the system temp directory, two free loopback
+  ports, and a Git repository per demo project;
+- a scratch `HOME`, `XDG_*`, `CODEX_HOME`, `CLAUDE_CONFIG_DIR` and `TMPDIR`,
+  and on macOS a throwaway keychain;
+- an empty loopback marketplace, so the catalog is never fetched;
+- a guard that samples the scratch process tree and fails the run if any of
+  them opens a file under the real `~/.codex`, `~/.claude`, `~/.cursor`,
+  `~/.config` or `~/.bb`. Evidence goes to `e2e-artifacts/isolation.jsonl`
+  (gitignored).
+
+It refuses BB's usual port 38886 and deletes all scratch data when it stops.
+It handles no credentials: it never signs in to a provider. Providers whose
+model lists need a sign-in show no models there.
+
+```sh
+# CLI smoke test: profiles status, export and an import round trip.
+env -i PATH="$PATH" HOME="$HOME" npm run e2e:smoke
+```
+
+## README media
+
+`npm run e2e:serve` keeps a scratch BB running (120 minutes by default, change
+it with `--minutes`) with the plugin installed from your working copy and three
+demo projects: "Payments service", "Mobile app" and "Docs site". It writes the
+URL, CLI path and projects to `e2e-artifacts/serve.json`, and the scratch
+environment to `e2e-artifacts/serve.env` (paths and ports only).
+
+```sh
+env -i PATH="$PATH" HOME="$HOME" npm run e2e:serve
+```
+
+Point the BB CLI at the scratch server with the variables in `serve.env`.
+Without them it talks to your real BB. Capture with a browser against the scratch URL.
+
 ## Moving profiles between servers
 
 ```sh

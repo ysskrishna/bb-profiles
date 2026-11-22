@@ -241,7 +241,7 @@ function ProfileMenu({
         aria-controls={open ? menuId : undefined}
         onClick={() => setOpen((now) => !now)}
       >
-        <Icon name="Ellipsis" aria-hidden />
+        <Icon name="MoreHorizontal" aria-hidden />
       </Button>
       {open ? (
         <div
