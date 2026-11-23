@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Added the live BB Marketplace badge and installation command, and updated the listing documentation.
+
 ## [0.1.1]
 
 ### Fixed
