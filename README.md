@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/ysskrishna/bb-profiles/actions/workflows/ci.yml/badge.svg)](https://github.com/ysskrishna/bb-profiles/actions/workflows/ci.yml)
 [![GitHub release](https://img.shields.io/github/v/release/ysskrishna/bb-profiles?label=release)](https://github.com/ysskrishna/bb-profiles/releases)
+[![BB Marketplace](https://img.shields.io/badge/BB-Marketplace-181717)](https://getbb.app/marketplace/bb-profiles)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 [![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
 
@@ -50,6 +51,14 @@ Every change saves on its own. Reset everything removes all profiles and rules.
 ## Installation
 
 Requires **BB 0.50.x**. The release badge above reflects published GitHub Releases.
+
+Install from [BB Marketplace](https://getbb.app/marketplace/bb-profiles):
+
+```sh
+bb plugin install bb-profiles
+```
+
+Or install the stable release from GitHub:
 
 ```sh
 bb plugin install git:github.com/ysskrishna/bb-profiles@v0.1.1
@@ -100,7 +109,7 @@ The [development guide](docs/development.md) covers trying a build in BB. Tag-ba
 
 - [Releases](https://github.com/ysskrishna/bb-profiles/releases) and [issues](https://github.com/ysskrishna/bb-profiles/issues)
 - [Security policy](SECURITY.md)
-- [BB Marketplace plans](docs/marketplace.md)
+- [BB Marketplace](https://getbb.app/marketplace/bb-profiles) and [listing maintenance](docs/marketplace.md)
 
 ## Built and maintained by
 
