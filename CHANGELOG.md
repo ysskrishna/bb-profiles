@@ -4,6 +4,7 @@
 
 ### Changed
 
+- Moved the GitHub release install into a collapsed "Install a specific release from GitHub" section in the README.
 - Added the live BB Marketplace badge and installation command, and updated the listing documentation.
 
 ## [0.1.1]
