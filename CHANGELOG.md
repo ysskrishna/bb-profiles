@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- A weekly "BB compat" workflow that runs the type check and scratch smoke test against any newer BB outside `engines.bb` and reports in a `bb-compat` issue.
+
 ### Changed
 
 - Moved the GitHub release install into a collapsed "Install a specific release from GitHub" section in the README.
