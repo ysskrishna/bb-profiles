@@ -10,6 +10,16 @@ That is your real BB: the plugin changes the model picker for your real
 projects, and its custom model commands edit your BB `config.json`. Back up your
 profiles first with `bb profiles export > profiles-backup.json`.
 
+## Dependencies
+
+BB installs a plugin from git with `npm install --omit=dev`, then builds it.
+Anything the app or server imports at runtime goes in `dependencies`, such as
+`zod` and `@radix-ui/react-slot`. The exception is a package BB shims at
+runtime, such as `class-variance-authority`, `clsx` and `tailwind-merge`: it
+goes in `devDependencies` at the host's version, because the build never
+bundles it. `npx bb plugin types --check` flags a shimmed package in
+`dependencies`.
+
 ## Tests
 
 Unit tests run in Vitest with the SDK's fake plugin host for the server, jsdom
