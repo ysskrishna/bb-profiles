@@ -7,6 +7,10 @@
 - Moved the GitHub release install into a collapsed "Install a specific release from GitHub" section in the README.
 - Added the live BB Marketplace badge and installation command, and updated the listing documentation.
 
+### Fixed
+
+- `class-variance-authority` is a development dependency again, as BB's SDK check requires. BB provides it at runtime, so git installs still build and the built plugin is unchanged.
+
 ## [0.1.1]
 
 ### Fixed
