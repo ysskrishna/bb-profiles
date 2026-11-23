@@ -58,11 +58,16 @@ Install from [BB Marketplace](https://getbb.app/marketplace/bb-profiles):
 bb plugin install bb-profiles
 ```
 
-Or install the stable release from GitHub:
+<details>
+<summary><b>Install a specific release from GitHub</b></summary>
+
+Install the stable release from [Releases](https://github.com/ysskrishna/bb-profiles/releases).
 
 ```sh
 bb plugin install git:github.com/ysskrishna/bb-profiles@v0.1.1
 ```
+
+</details>
 
 BB shows the source for confirmation before installing it. The plugin ID is `bb-profiles`. Open **Settings > Profiles** or click the sliders button in a new-thread composer.
 
