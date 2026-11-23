@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- A manually dispatched GitHub Actions workflow that runs the scratch BB e2e smoke test.
+
 ### Changed
 
 - Moved the GitHub release install into a collapsed "Install a specific release from GitHub" section in the README.
