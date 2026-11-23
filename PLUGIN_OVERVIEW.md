@@ -24,5 +24,5 @@ config file, which has no plugin API.
 
 ## Requirements
 
-BB 0.50.x. The plugin ID is `bb-profiles`. For installation and release status,
-see the [project README](https://github.com/ysskrishna/bb-profiles#readme).
+BB 0.50.1 or later. The plugin ID is `bb-profiles`. For installation and release
+status, see the [project README](https://github.com/ysskrishna/bb-profiles#readme).
