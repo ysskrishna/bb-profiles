@@ -5,6 +5,7 @@
 ### Added
 
 - A GitHub Actions workflow, run manually or on pull requests that touch the e2e files, that runs the scratch BB e2e smoke test.
+- A weekly "BB compat" workflow that runs the type check and scratch smoke test against any newer BB outside `engines.bb` and reports in a `bb-compat` issue.
 
 ### Changed
 
