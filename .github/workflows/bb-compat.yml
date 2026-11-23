@@ -1,0 +1,27 @@
+name: BB compat
+
+# Weekly check that the latest BB still fits engines.bb; see
+# https://github.com/ysskrishna/bb-plugin-ci. Dispatch with a bb-version such
+# as "nightly" to test a newer BB early.
+on:
+  schedule:
+    - cron: "27 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      bb-version:
+        description: bb-app version or dist-tag to test (empty means latest)
+        default: ""
+  pull_request:
+    paths:
+      - .github/workflows/bb-compat.yml
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  compat:
+    uses: ysskrishna/bb-plugin-ci/.github/workflows/bb-compat.yml@v1
+    with:
+      bb-version: ${{ inputs.bb-version }}
+      apt-packages: lsof procps
