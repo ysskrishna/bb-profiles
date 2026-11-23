@@ -1,6 +1,6 @@
 {
   "name": "bb-profiles",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Choose which providers and models appear in the model picker for each project, and the default model new threads start on.",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "url": "https://github.com/ysskrishna/bb-profiles/issues"
   },
   "engines": {
-    "bb": ">=0.50.1 <0.51.0",
+    "bb": ">=0.50.1",
     "bbPluginSdk": ">=0.6.157"
   },
   "bb": {

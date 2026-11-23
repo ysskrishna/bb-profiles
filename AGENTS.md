@@ -42,8 +42,10 @@ overrides, or per-profile custom models.
   top-level `customModels` key of `<dataDir>/config.json` with an atomic write,
   refuse a file they cannot parse, and call `reloadConfig` afterwards.
 - Every UI surface and hook used is `experimental_`, and the picker filter and
-  the settings button depend on BB internals. Keep `engines.bb` pinned to the
-  tested BB minor and the SDK pinned exactly.
+  the settings button depend on BB internals. Keep `engines.bb` open-ended
+  (`>=` the oldest tested BB) and the SDK pinned exactly. The daily BB compat
+  run against the latest stable BB reports a release that breaks the plugin;
+  fix forward.
 - The display name is Profiles. The package, runtime, and marketplace ID are
   `bb-profiles`. BB stores plugin data by ID; an identity change needs an
   explicit data transfer (`bb profiles export` then `import`).

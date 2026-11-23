@@ -50,7 +50,7 @@ Every change saves on its own. Reset everything removes all profiles and rules.
 
 ## Installation
 
-Requires **BB 0.50.x**. The release badge above reflects published GitHub Releases.
+Requires **BB 0.50.1 or later**. The release badge above reflects published GitHub Releases.
 
 Install from [BB Marketplace](https://getbb.app/marketplace/bb-profiles):
 

@@ -26,8 +26,10 @@ Unit tests run in Vitest with the SDK's fake plugin host for the server, jsdom
 for the settings page, composer button and app overlay, and a real TanStack
 `QueryClient` for the picker filter. They do not prove compatibility with a BB
 version: the picker filter reads BB's query client through React internals, and
-the settings button pushes BB's settings route. Check both by hand on the BB
-minor in `engines.bb` before a release.
+the settings button pushes BB's settings route. `engines.bb` is open-ended, and
+the daily BB compat run against the latest stable BB (below) reports a release
+that breaks the plugin; fix forward. Before a release, check both by hand on
+the current BB.
 
 ## Isolated scratch BB
 
@@ -53,7 +55,7 @@ model lists need a sign-in show no models there.
 env -i PATH="$PATH" HOME="$HOME" npm run e2e:smoke
 ```
 
-The weekly "BB compat" workflow (from [bb-plugin-ci](https://github.com/ysskrishna/bb-plugin-ci)) runs `typecheck` and `e2e:smoke` against any newer BB outside `engines.bb` and reports the result in a `bb-compat` issue.
+The "BB compat" workflow (from [bb-plugin-ci](https://github.com/ysskrishna/bb-plugin-ci)) runs `typecheck` and `e2e:smoke` daily against the latest stable BB and reports a failure in a `bb-compat` issue.
 
 ## README media
 
