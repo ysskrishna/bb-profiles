@@ -1,0 +1,37 @@
+name: Scratch e2e
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/e2e.yml"
+      - "scripts/e2e/**"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install process inspection tools
+        run: sudo apt-get update && sudo apt-get install -y lsof procps
+      - name: Check process guard
+        run: node --test scripts/e2e/isolation.test.mjs
+      - name: Run the scratch RPC smoke test
+        run: env -i PATH="$PATH" HOME="$HOME" npm run e2e:smoke
+      - name: Upload scratch diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scratch-e2e-failure
+          path: e2e-artifacts/
+          if-no-files-found: ignore
