@@ -2,6 +2,10 @@ name: Scratch e2e
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/e2e.yml"
+      - "scripts/e2e/**"
 
 permissions:
   contents: read
@@ -18,8 +22,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Install fixture provider CLI
-        run: npm install --global @openai/codex@0.169.0
       - name: Install process inspection tools
         run: sudo apt-get update && sudo apt-get install -y lsof procps
       - name: Check process guard

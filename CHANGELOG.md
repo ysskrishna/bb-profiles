@@ -4,7 +4,7 @@
 
 ### Added
 
-- A manually dispatched GitHub Actions workflow that runs the scratch BB e2e smoke test.
+- A GitHub Actions workflow, run manually or on pull requests that touch the e2e files, that runs the scratch BB e2e smoke test.
 
 ### Changed
 
